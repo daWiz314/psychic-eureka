@@ -1,8 +1,6 @@
-<html>
-<body>
-    {% include 'nav.html' %}
-
-
+{% extends "base.html" %}
+{% include 'nav.html' %}
+{% block content %}
     <form action="/login" method="POST">
         <p>Enter Name:</p>
         <p>
@@ -12,6 +10,4 @@
             <input type="submit" value="Submit">
         </p>
     </form>
-    
-</body>
-</html>
+{% endblock %}
