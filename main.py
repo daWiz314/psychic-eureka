@@ -7,13 +7,17 @@ app = Flask(__name__)
 def hello_world():
     return render_template('index.html')
 
+@app.route('/index')
+def index():
+    return redirect('/')
+
 @app.route('/greet/<name>')
 def greet(name):
     return f'Hello, {name}!'
 
 @app.route('/success/<name>')
 def success(name):
-    return redirect('/greet/' + name)
+    return render_template('success.html', name=name)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -22,6 +26,6 @@ def login():
         return redirect(url_for('success', name=user), code=301)
     else:
         return render_template('index.html')
-
+ 
 if __name__ == '__main__':
     app.run(debug=True)
