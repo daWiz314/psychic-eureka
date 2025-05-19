@@ -1,0 +1,12 @@
+<form action="{{ url_for('index.test')}}" method="post">
+    {{ form.hidden_tag() }}
+    {{ form.name.label }} {{ form.name(class_="this-is-a-class") }}<br>
+    {{ form.password.label }} {{ form.password(size=32) }}
+    {{ form.confirm_password.label }} {{ form.confirm_password }}
+    {{ form.submit() }}
+</form>
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
