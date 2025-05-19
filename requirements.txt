@@ -3,3 +3,4 @@ gunicorn
 db-sqlite3
 flask-wtf
 flask-bcrypt
+PyJWT
