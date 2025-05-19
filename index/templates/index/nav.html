@@ -1,0 +1,28 @@
+{% block nav %}
+    <style>
+        .default-nav {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-bottom: 1px solid #dee2e6;
+            z-index: 1000;
+        }
+
+        .default-nav > ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .default-nav > ul > li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+    </style>
+    <nav class="default-nav">
+        <ul>
+            <li><a href="{{ url_for('index.index') }}">Home</a></li>
+            <li><a href="{{ url_for('e_com_ref.index') }}">E_com</a></li>
+        </ul>
+    </nav>
+
+{% endblock %}
