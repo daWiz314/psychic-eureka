@@ -2,10 +2,14 @@
 
 {% block content %}
 {% include '/index/nav.html' %}
-    <form action="/login" method="POST">
+    <form action="/index/login" method="POST">
         <p>Enter Name:</p>
         <p>
-            <input type="text" name="nm">
+            <input type="text" name="name">
+        </p>
+        <p>Enter Message: </p>
+        <p>
+            <input type="text" name="message">
         </p>
         <p>
             <input type="submit" value="Submit">
