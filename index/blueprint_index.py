@@ -100,6 +100,7 @@ def index():
 
 # Success for logging in, will update later
 @index_blueprint.route('/success')
+@token_required
 def success():
     
 
@@ -178,7 +179,12 @@ def create_account():
 			return response
 	else:
 		return hello_world(message="Please fill out a form!")
-	
+
+@index_blueprint.route('/logout')
+def logout():
+	response = make_response(redirect(url_for('index.index'), code=301))
+	response.set_cookie('jwt_token', '', '', expires=0)
+	return response
 
 @index_blueprint.route('/feed')
 @token_required
