@@ -1,11 +1,11 @@
 # Main landing point for flask application
 import sqlite3
 
-from flask import Flask, Blueprint, redirect, url_for, request, render_template
-from flask_bcrypt import Bcrypt                            # For password hashing
+from flask import Blueprint, redirect, url_for, request, render_template
+from flask_bcrypt import Bcrypt                             # For password hashing
 from flask_wtf import FlaskForm                             # For CSRF and forms
 from wtforms import StringField, PasswordField, SubmitField # For better form support
-from wtforms.validators import InputRequired, EqualTo        # For form validation
+from wtforms.validators import InputRequired, EqualTo       # For form validation
 
 
 class MessageForm(FlaskForm):
