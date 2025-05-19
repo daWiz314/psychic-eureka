@@ -1,31 +1,17 @@
 
-from flask import Flask, redirect, url_for, request, render_template
+from flask import Flask
+from index.blueprint_index import index_blueprint
+from e_com_ref.e_com_ref import ecom_ref
 
+# Main flask application
 app = Flask(__name__)
 
-@app.route('/')
-def hello_world():
-    return render_template('index.html')
+# Main index blueprint
+app.register_blueprint(index_blueprint)
 
-@app.route('/index')
-def index():
-    return redirect('/')
+# E-commerce reference blueprint
+app.register_blueprint(ecom_ref, url_prefix='/e_com_ref')
 
-@app.route('/greet/<name>')
-def greet(name):
-    return f'Hello, {name}!'
-
-@app.route('/success/<name>')
-def success(name):
-    return render_template('success.html', name=name)
-
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    if request.method == 'POST':
-        user = request.form['nm']
-        return redirect(url_for('success', name=user), code=301)
-    else:
-        return render_template('index.html')
- 
+# Start app
 if __name__ == '__main__':
     app.run(debug=True)
