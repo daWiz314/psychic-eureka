@@ -1,0 +1,78 @@
+{% extends "e_com_ref/base.html" %}
+
+{% block content %}
+{% include "index/nav.html" %}
+<nav>
+    <h3 class="nav-title" id="nav-bar-title">Shop</h3>
+    <ul>
+      <h3 id="logo">Logo</h3>
+      <li class="nav-menu hidden">
+        <h4 class="nav-sub-menu-title">Menu 1</h4>
+        <ul class="nav-sub-menu hidden">
+          <li class="selectable_item"><a>1</a></li>
+          <li class="selectable_item"><a>2</a></li>
+          <li class="selectable_item"><a>3</a></li>
+        </ul>
+      </li>
+      <li class="nav-menu hidden">
+        <h4 class="nav-sub-menu-title">Menu 2</h4>
+        <ul class="nav-sub-menu hidden">
+          <li class="selectable_item"><a>4</a></li>
+          <li class="selectable_item"><a>5</a></li>
+          <li class="selectable_item"><a>6</a></li>
+        </ul>
+      </li>
+      <li class="nav-menu hidden">
+        <h4 class="nav-sub-menu-title">Menu 3</h4>
+        <ul class="nav-sub-menu hidden">
+          <li class="selectable_item"><a>7</a></li>
+          <li class="selectable_item"><a>8</a></li>
+          <li class="selectable_item"><a>9</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <!-- Need to update this to use CSS and actually animate the pictures, I am thinking they slide to the left, out of frame, while the new one slides same direction into view  -->
+  <section id="highlight"><img src="https://images.pexels.com/photos/139309/pexels-photo-139309.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="A stock picture of some wood" id="highlight-picture"><p id="highlight-image-text">Super cool filler text</p></section>
+  <main>
+      <p>This will contain all the new deals for different products!</p>
+      <ul>
+          <li>
+              <div class="product">
+                  <img src="https://www.mammothheadwear.com/cdn/shop/files/Blank_black_rope_1_c2d9526e-7069-4ff2-b311-6738b9ab5c40.jpg?v=1705110552" alt="">
+                  <section class="pricing">
+                      <p class="price">$4000</p>
+                      <button>Spend Money!</button>
+                  </section>
+              </div>
+          </li>
+          <li>
+              <div class="product">
+                  <img src="https://www.mammothheadwear.com/cdn/shop/files/Blank_black_rope_1_c2d9526e-7069-4ff2-b311-6738b9ab5c40.jpg?v=1705110552" alt="">
+                  <section class="pricing">
+                      <p class="price">$4000</p>
+                      <button>Spend Money!</button>
+                  </section>
+              </div>
+          </li>
+          <li>
+              <div class="product">
+                  <img src="https://www.mammothheadwear.com/cdn/shop/files/Blank_black_rope_1_c2d9526e-7069-4ff2-b311-6738b9ab5c40.jpg?v=1705110552" alt="">
+                  <section class="pricing">
+                      <p class="price">$4000</p>
+                      <button>Spend Money!</button>
+                  </section>
+              </div>
+          </li>
+          <li>
+              <div class="product">
+                  <img src="https://www.mammothheadwear.com/cdn/shop/files/Blank_black_rope_1_c2d9526e-7069-4ff2-b311-6738b9ab5c40.jpg?v=1705110552" alt="">
+                  <section class="pricing">
+                      <p class="price">$4000</p>
+                      <button>Spend Money!</button>
+                  </section>
+              </div>
+          </li>
+      </ul>
+  </main>
+  {% endblock %}
