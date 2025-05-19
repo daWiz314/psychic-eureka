@@ -1,0 +1,18 @@
+{% extends "/index/base.html" %}
+
+{% block content %}
+{% include '/index/nav.html' %}
+    <form action="/index/login" method="POST">
+        <p>Enter Name:</p>
+        <p>
+            <input type="text" name="name">
+        </p>
+        <p>Enter Message: </p>
+        <p>
+            <input type="text" name="message">
+        </p>
+        <p>
+            <input type="submit" value="Submit">
+        </p>
+    </form>
+{% endblock %}
