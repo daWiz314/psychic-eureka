@@ -15,4 +15,5 @@ def hello_world():
 # Redirect to main index route, but we have to call it index, because a URL_FOR cannot use a /
 @ecom_ref.route('/index')
 def index():
+    # We are adding the initial / because of the URL prefix in the main file
     return redirect('/e_com_ref/')
