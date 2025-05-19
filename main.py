@@ -6,6 +6,7 @@ from e_com_ref.e_com_ref import ecom_ref
 
 # Main flask application
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'your_secret_key'  # Set a secret key for CSRF protection
 
 # Main index blueprint
 app.register_blueprint(index_blueprint, url_prefix='/index')
