@@ -2,17 +2,35 @@
 
 {% block content %}
 {% include '/index/nav.html' %}
-    <form action="/index/login" method="POST">
-        <p>Enter Name:</p>
-        <p>
-            <input type="text" name="name">
-        </p>
-        <p>Enter Message: </p>
-        <p>
-            <input type="text" name="message">
-        </p>
-        <p>
-            <input type="submit" value="Submit">
-        </p>
+{% if forms.messages %}
+    <div class="alert" role="alert">
+        {% for message in forms.messages %}
+            <div class="alert">{{ message }}</div>
+        {% endfor %}
+    </div>
+{% endif %}
+<div class="form-container">
+    <form action="{{ url_for('index.create_account') }}" method="POST">
+        <h4>Sign up!</h3>
+            {{ forms.signup_form.hidden_tag() }}
+            {{ forms.signup_form.name.label}}
+            {{ forms.signup_form.name }}
+            {{ forms.signup_form.password.label }}
+            {{ forms.signup_form.password }}
+            {{ forms.signup_form.confirm_password.label }}
+            {{ forms.signup_form.confirm_password }}
+            {{ forms.signup_form.submit() }}
     </form>
+    <br>
+
+    <form action="{{ url_for('index.login') }}" method="POST">
+        <h4>Log in!</h3>
+            {{ forms.login_form.hidden_tag() }}
+            {{ forms.login_form.name.label}}
+            {{ forms.login_form.name }}
+            {{ forms.login_form.password.label }}
+            {{ forms.login_form.password }}
+            {{ forms.login_form.submit() }}
+    </form>
+</div>
 {% endblock %}

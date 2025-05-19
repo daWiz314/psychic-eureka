@@ -1,4 +1,59 @@
 form {
     position: relative;
-    top: 3em;
+    width: 30em;
+    top: 4em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F9F9F9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input {
+    width: 50%;
+    margin: 5px 0;
+}
+
+input[type="submit"] {
+    margin: 20px 0;
+}
+
+li {
+    list-style: none;
+}
+
+main {
+    position: relative;
+    top: 2em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.alert {
+    position: relative;
+    top: 2em;
+    width: 100%;
+    text-align: center;
+    color: red;
+}
+
+.feed-item {
+    margin: 2em;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #F9F9F0;
+}
+
+.feed-item > h2 {
+    border-bottom: 1px solid black;
+}
+
+.feed-list {
+    display: flex;
+}
+
+.form-container {
+    width: 100%;
+    justify-items: center;
 }

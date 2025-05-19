@@ -1,0 +1,21 @@
+{% extends 'index/base.html' %}
+
+{% block content %}
+{% include 'index/nav.html' %}
+<main>
+    <ul class="feed-list">
+        {% for author in data %}
+        <li class="feed-item">
+            <h2>Author: {{ author.name }}</h2>
+            {% for i in range(author.count): %}
+                <span>
+                    <h3>{{ author.messages[0][i] }}</h3>
+                    <p>{{ author.messages[1][i] }}</p>
+                </span>
+            {% endfor %}
+        </li>
+        {% endfor %}
+    </ul>
+</main>
+
+{% endblock %}

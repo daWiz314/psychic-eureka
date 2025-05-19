@@ -9,17 +9,10 @@
 </style>
     <div>
         <h4>Success!</h4>
-        <h5>Other users since last reset:</h5>
         <ul>
-            {% for user in data %}
-                <li>
-                    <div>
-                        <p>Name: {{ user[0] }}</p>
-                        <p>Message: {{ user[1] }}</p>
-                    </div>
-                </li>
-            {% endfor %}
+            <li><a href="{{ url_for('index.create_message') }}">Create a Post</a></li>
+            <li><a href="{{ url_for('index.feed') }}">View other Posts</a></li>
         </ul>
-        <p>We are not keeping this data and it will be reset with 15 minutes of inactivity on the server</p>
+        
     </div>
 {% endblock %}
