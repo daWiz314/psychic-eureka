@@ -1,4 +1,4 @@
-@media (max-width: 1000px) or (min-width: 1000px) {
+@media (min-width: 1000px) /*or (min-width: 1000px)*/ {
     .nav-title {
       display: none;
     }
@@ -26,6 +26,7 @@
       flex-direction: column;
       align-items: center;
       background-color: #ffd379;
+      transition: background-color 0.5s ease-in-out;
     }
   
     .nav-menu,
@@ -41,6 +42,8 @@
       flex-wrap: nowrap;
       align-items: center;
       background-color: #38855d;
+      box-shadow: 5px 5px 10px;
+      border-radius: 5%;
     }
   
     .nav-sub-menu > li {
@@ -48,6 +51,7 @@
       text-align: center;
       height: 2em;
       line-height: 2em;
+      border-radius: inherit;
     }
   
     .nav-menu > h4::after {
@@ -98,8 +102,8 @@
     #highlight-picture {
       display: block;
       margin: auto;
-      height: 15em;
-      max-width: 30em;
+      height: 35em;
+      max-width: 45em;
       overflow: hidden;
     }
   
@@ -166,11 +170,17 @@
     }
   }
   
-  /* Change this to max later */
-  /*@media (max-width: 500px) {
-    nav {
+
+  @media (max-width: 1000px) {
+    html {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    #ref-nav {
       position: absolute;
-      top: 2em;
+      top: 4em;
       left: 1em;
       padding: 0;
       margin: 0;
@@ -185,7 +195,7 @@
       display: none;
     }
   
-    nav > ul {
+    #ref-nav > ul {
       display: flex;
       flex-direction: column;
       flex-wrap: nowrap;
@@ -193,7 +203,7 @@
       width: 11em;
     }
   
-    nav > ul:first-of-type {
+    #ref-nav > ul:first-of-type {
       margin-top: 3em;
     }
   
@@ -208,16 +218,31 @@
     .nav-menu > * {
       margin: 0;
       padding: 0;
-      text-align: center;
+      text-align: center; 
     }
   
     .nav-sub-menu > li {
       padding: 0.4em 0;
       width: 100%;
     }
+
+    #highlight {
+      position: relative;
+      top: 5em;
+      width: 100%;
+      height: 30em;
+      background-color: black;
+    }
   
-    End of mobile format
-  } */
+    #highlight-picture {
+      display: block;
+      margin: auto;
+      max-height: 30em;
+      max-width: 100%;
+      overflow: hidden;
+    }
+    /* End of mobile format */
+  }
   
   * {
     box-sizing: border-box;
