@@ -8,8 +8,8 @@
     <script src="{{ url_for('index.static', filename='script.js') }}"></script>
 </head>
 <body>
-    {% block nav %} {% endblock %}
+    {% include 'index/nav.html' %}
     {% block content %} {% endblock %}
-    {% block footer %} {% endblock %}
+    <!-- {% include 'index/footer.html' %} -->
 </body>
 </html>
