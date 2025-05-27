@@ -101,7 +101,7 @@ def index():
 # Success for logging in, will update later
 @index_blueprint.route('/success')
 @token_required
-def success():
+def success(user):
     
 
     return render_template('/index/success.html')
