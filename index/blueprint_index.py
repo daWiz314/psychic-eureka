@@ -99,12 +99,12 @@ def index():
      return redirect('/', code=301)
 
 # Success for logging in, will update later
-@index_blueprint.route('/success')
+@index_blueprint.route('/profile')
 @token_required
-def success(user):
+def profile(user):
     
 
-    return render_template('/index/success.html')
+    return render_template('/index/profile.html')
 
 # Login route
 # Will update later to help against CSRF
@@ -173,7 +173,7 @@ def create_account():
 				
 			token = jwt.encode({"user": user, 'exp': datetime.now(timezone.utc) + timedelta(hours=1)}, current_app.config['SECRET_KEY'], algorithm='HS256')
 
-			response = make_response(redirect(url_for('index.success'), code=301))
+			response = make_response(redirect(url_for('index.profile'), code=301))
 			response.set_cookie('jwt_token', token, secure=True, samesite='Strict')
 
 			return response
@@ -214,7 +214,8 @@ def feed(user):
 			  		SELECT title FROM users WHERE name = ?
 			  		''', (name[0],))
 		titles = cur.fetchall()
-
+		if messages[0][0] is None or titles[0][0] is None:
+			continue
 		feed.append({
 			'name'		: name[0],
 			'count'		: len(messages),
