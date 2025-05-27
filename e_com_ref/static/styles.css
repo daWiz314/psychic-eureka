@@ -1,31 +1,56 @@
+:root {
+  --main-bg-color: #fdfdfd;
+
+  --main-selector-color: #DDEB9D;
+}
+/* 
+  Different shades of white
+  #f0f0f0
+  #fdfdfd
+  #f2f3f4
+
+*/
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('./fonts/Roboto-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
 @media (min-width: 1000px) /*or (min-width: 1000px)*/ {
     .nav-title {
       display: none;
     }
   
     nav {
-      position: absolute;
-      top: 0;
-      left: 0;
+      position: relative;
       z-index: 90;
+      background-color: var(--main-bg-color);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+      padding: .3em 0;
+    }
+
+    nav > ul {
+      display: flex;
+      align-items: center;
     }
   
-    nav > ul > * {
-      float: left;
+    nav > ul > h3 {
+      margin: 0;
     }
   
     #logo {
       text-align: center;
-      margin-right: 2em;
+      margin-right: auto;
     }
   
     .nav-menu {
       width: 10em;
       margin: 0;
+      padding: 0.5em;
       display: flex;
       flex-direction: column;
       align-items: center;
-      background-color: #ffd379;
       transition: background-color 0.5s ease-in-out;
     }
   
@@ -35,15 +60,21 @@
     }
   
     .nav-sub-menu {
-      width: 100%;
+      position: absolute;
+      top: 3.5em;
+      width: 10em;
       padding: 0;
       display: flex;
       flex-direction: column;
       flex-wrap: nowrap;
       align-items: center;
-      background-color: #38855d;
+      background-color: var(--main-selector-color);
       box-shadow: 5px 5px 10px;
       border-radius: 5%;
+    }
+
+    .nav-sub-menu-title {
+      margin: 0;
     }
   
     .nav-sub-menu > li {
@@ -72,11 +103,11 @@
       display: flex;
     }
   
-    .selectable_item:hover {
+    .selectable-item:hover {
       background-color: #ffffff;
     }
   
-    .selectable_item::after {
+    /* .selectable-item::after {
       content: "";
       display: block;
       position: relative;
@@ -84,27 +115,28 @@
       width: 0%;
       background-color: black;
       transition: width 0.5s ease-in-out;
-    }
+    } */
   
-    .selectable_item:hover::after {
+    .selectable-item:hover::after {
       width: 100%;
       transition: width 0.5s ease-in-out;
     }
   
     #highlight {
       position: relative;
-      top: 6em;
       width: 100%;
       height: auto;
-      background-color: black;
+      background-color: var(--main-bg-color);
+      margin: 2em 0;
     }
   
     #highlight-picture {
       display: block;
       margin: auto;
-      height: 35em;
-      max-width: 45em;
-      overflow: hidden;
+      max-width: 100%;
+      height: auto;     
+      aspect-ratio: 16 / 9; 
+      object-fit: cover;
     }
   
     #highlight-image-text {
@@ -116,23 +148,25 @@
     }
     
     main {
-      margin-top: 10em;
-      border: 10px solid black;
+      /* margin-top: 10em; */
+      margin: 0;
+      /* border: 10px solid black; */
+      padding: 0 5em;
       width: 100%;
     }
     
     main > ul {
-        list-style: none;
+      list-style: none;
       display: flex;
       flex-direction: row;
       justify-content: space-evenly;
     }
     
     .product {
-        border: 1px solid black;
+      /* border: 1px solid black; */
       width: 10em;
       height: 10em;
-      background-color: black;
+      /* background-color: black; */
       display: flex;
       flex-direction: column;
       box-shadow: 2px 2px 5px;
@@ -140,7 +174,7 @@
     }
     
     .product:hover {
-        box-shadow: 4px 4px 10px;
+      box-shadow: 4px 4px 10px;
     }
     
     .product > img {
@@ -150,8 +184,8 @@
     }
     
     .pricing {
-        border: 1px solid black;
-        background-color: white;
+      /* border: 1px solid black; */
+      background-color: var(--main-bg-color);
       width: 100%;
       height: 3em;
       display: flex;
@@ -166,7 +200,13 @@
     }
     
     .pricing > button {
-        
+      border: 0;
+      border-radius: 5%;
+      margin: auto;
+      inset: 0;
+      width: 95%;
+      cursor: pointer;
+      background-color: var(--main-selector-color);
     }
   }
   
@@ -246,18 +286,20 @@
   
   * {
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
   }
   
   body {
     margin: 0;
+    margin-top: 2em;
     padding: 0;
-    background-color: #ffd379;
+    background-color: var(--main-bg-color);
   }
   
   .nav-title,
   .nav-menu,
   .nav-sub-menu,
-  .selectable_item {
+  .selectable-item {
     cursor: pointer;
   }
   

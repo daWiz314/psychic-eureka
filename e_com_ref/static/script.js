@@ -83,7 +83,7 @@ class NavBar {
       constructor() {
           this.element = document.getElementById("highlight-picture");
           this.text = document.getElementById("highlight-picture-text");
-          this.pictures = ["https://images.pexels.com/photos/139309/pexels-photo-139309.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "https://images.pexels.com/photos/942305/pexels-photo-942305.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "https://as2.ftcdn.net/v2/jpg/04/28/76/95/1000_F_428769564_NB2T4JM9E2xsxFdXXwqW717HwgaZdpAq.jpg"];
+          this.pictures = ["https://images.pexels.com/photos/139309/pexels-photo-139309.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "https://images.pexels.com/photos/942305/pexels-photo-942305.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"]; //"https://as2.ftcdn.net/v2/jpg/04/28/76/95/1000_F_428769564_NB2T4JM9E2xsxFdXXwqW717HwgaZdpAq.jpg"];
       }
       
       change_picture(obj) {
