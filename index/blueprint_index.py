@@ -177,6 +177,8 @@ def create_account():
 			response.set_cookie('jwt_token', token, secure=True, samesite='Strict')
 
 			return response
+		else:
+			return hello_world(message="Passwords do not match!")
 	else:
 		return hello_world(message="Please fill out a form!")
 
