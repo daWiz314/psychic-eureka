@@ -1,6 +1,6 @@
 form {
     position: relative;
-    width: 30em;
+    width: min(30em, 100%);
     top: 4em;
     display: flex;
     flex-direction: column;
