@@ -77,9 +77,18 @@ index_blueprint = Blueprint('index',
                              static_folder='static')
 
 
+# @index_blueprint.route('/index/<message>')
+# def respond_to_message(message):
+# 	# Redirect to the main index route with a message
+# 	return redirect(url_for('index.hello_world', _method='POST', data=message), code=307)
+# 	# return redirect(url_for('index.hello_world', message=message), code=301)
+
 # Main index route
-@index_blueprint.route('/')
+@index_blueprint.route('/', methods=['GET', 'POST'])
 def hello_world(message="None"):
+	if (request.method == "POST"):
+		print("POST request received")
+		print(message)
 	signup_form = signupForm()
 	login_form 	= loginForm()
 	signup_form = signupForm()
@@ -91,6 +100,7 @@ def hello_world(message="None"):
 	}
 	if message != "None":
 		forms['messages'].append(message)
+		# return redirect(url_for('index.index'), code=301)
 	return render_template('index/index.html', forms=forms)
 
 # Route for the main page
