@@ -7,6 +7,8 @@ form {
     align-items: center;
     background-color: #F9F9F9;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    inset: 0;
+    margin: auto;
 }
 
 input {
@@ -18,13 +20,18 @@ input[type="submit"] {
     margin: 20px 0;
 }
 
+textarea {
+    width: max(50%, 20em);
+    height: 10em;
+}
+
 li {
     list-style: none;
 }
 
 main {
     position: relative;
-    top: 2em;
+    top: 5em;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -49,8 +56,54 @@ main {
     border-bottom: 1px solid black;
 }
 
+.feed-item > span > h3 {
+    height: auto;
+    width: 100%;
+    text-align: center;
+}
+
+.post_time {
+    font-size: 0.8em;
+    color: gray;
+    float: right;
+}
+
 .feed-list {
     display: flex;
+    align-items: center;
+}
+
+details {
+    display: inline-block;
+    background-color: #F9F9F0;
+    /* border: 1px solid #ccc; */
+    height: fit-content;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+details > summary {
+    /* display: inline-flex; */
+    cursor: pointer;
+    list-style: none;
+    background-color: #F9F9F0;
+    padding: .5em 2em;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+details > .author {
+    margin: 0;
+    margin-left: .5em;
+    padding: 0;
+    padding-left: .5em;
+    border-bottom: 1px solid #ccc;
+    width: 3em;
+    text-align: center;
+}
+
+details > p {
+    padding: 10px;
 }
 
 .form-container {
