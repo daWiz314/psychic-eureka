@@ -9,28 +9,30 @@
         {% endfor %}
     </div>
 {% endif %}
-<div class="form-container">
-    <form action="{{ url_for('index.create_account') }}" method="POST">
-        <h4>Sign up!</h3>
-            {{ forms.signup_form.hidden_tag() }}
-            {{ forms.signup_form.name.label}}
-            {{ forms.signup_form.name }}
-            {{ forms.signup_form.password.label }}
-            {{ forms.signup_form.password }}
-            {{ forms.signup_form.confirm_password.label }}
-            {{ forms.signup_form.confirm_password }}
-            {{ forms.signup_form.submit() }}
-    </form>
-    <br>
+<main>
+    <div class="form-container">
+        <form action="{{ url_for('index.create_account') }}" method="POST">
+            <h4>Sign up!</h3>
+                {{ forms.signup_form.hidden_tag() }}
+                {{ forms.signup_form.name.label}}
+                {{ forms.signup_form.name }}
+                {{ forms.signup_form.password.label }}
+                {{ forms.signup_form.password }}
+                {{ forms.signup_form.confirm_password.label }}
+                {{ forms.signup_form.confirm_password }}
+                {{ forms.signup_form.submit() }}
+        </form>
+        <br>
 
-    <form action="{{ url_for('index.login') }}" method="POST">
-        <h4>Log in!</h3>
-            {{ forms.login_form.hidden_tag() }}
-            {{ forms.login_form.name.label}}
-            {{ forms.login_form.name }}
-            {{ forms.login_form.password.label }}
-            {{ forms.login_form.password }}
-            {{ forms.login_form.submit() }}
-    </form>
-</div>
+        <form action="{{ url_for('index.login') }}" method="POST">
+            <h4>Log in!</h3>
+                {{ forms.login_form.hidden_tag() }}
+                {{ forms.login_form.name.label}}
+                {{ forms.login_form.name }}
+                {{ forms.login_form.password.label }}
+                {{ forms.login_form.password }}
+                {{ forms.login_form.submit() }}
+        </form>
+    </div>
+</main>
 {% endblock %}
