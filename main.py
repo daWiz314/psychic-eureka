@@ -1,7 +1,7 @@
 
-from flask import Flask, render_template, redirect
-from index.blueprint_index import index_blueprint
-from index.blueprint_index import set_up as index_set_up
+from flask import Flask, redirect
+from index.routes import setup_blueprint as index_set_up
+from index.routes import index_blueprint
 from e_com_ref.e_com_ref import ecom_ref
 
 # Main flask application
