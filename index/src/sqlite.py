@@ -2,7 +2,7 @@ import datetime
 import os
 import sqlite3
 
-def sql_set_up() -> None:
+def connect() -> sqlite3.Connection:
 	cd = __file__.rsplit('/', 2)[0] + "/"
 	# Check if database file exists
 	if (not os.path.exists(cd+"db/users.sqlite")):
@@ -17,6 +17,10 @@ def sql_set_up() -> None:
 	# Set up the database
 	print(cd)
 	db = sqlite3.connect(cd+"/db/users.sqlite", check_same_thread=False)
+	return db
+
+def sql_set_up() -> None:
+	db = connect()
 	# Delete the table after every set up of server
 	db.execute('''
 				DROP TABLE IF EXISTS users
@@ -42,7 +46,7 @@ def add_user(display_name, title, message, password) -> bool:
 	"""
 	Adds a user to the database, if they don't already exist.
 	"""
-	db = sqlite3.connect('database.db', check_same_thread=False)
+	db = connect()
 	cursor = db.cursor()
 
 	name = display_name.lower()
@@ -70,7 +74,7 @@ def get_hashed_password(user) -> str | None:
 	"""
 	Retrieves the hashed password for a user from the database.
 	"""
-	db = sqlite3.connect('database.db', check_same_thread=False)
+	db = connect()
 	cursor = db.cursor()
 	
 	cursor.execute('''
@@ -89,7 +93,7 @@ def get_feed() -> list[dict]:
 	"""
 	Retrieves all messages from the database.
 	"""
-	db = sqlite3.connect('database.db', check_same_thread=False)
+	db = connect()
 	cursor = db.cursor()
 	
 	cursor.execute('''
@@ -141,7 +145,7 @@ def sql_create_message(user, title, message) -> None:
 	date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 	
 
-	db = sqlite3.connect('database.db', check_same_thread=False)
+	db = connect()
 	cursor = db.cursor()
 	
 	cursor.execute('''
