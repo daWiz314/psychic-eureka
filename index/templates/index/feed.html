@@ -3,16 +3,25 @@
 {% block content %}
 <main>
     <ul class="feed-list">
-        {% for author in data %}
+        {% for row in data %}
         <li class="feed-item">
-            <h2>Author: {{ author.name }}</h2>
-            {% for i in range(author.count): %}
+            <h2>{{ row.title }}</h2>
                 <span>
-                    <h3>{{ author.messages[0][i] }}</h3>
-                    <p>{{ author.messages[1][i] }}</p>
+                    <h3>
+                        Author: {{ row.name }}
+                    </h3>
+                    <p>{{ row.message }}</p>
+                    <p class="post_time">Posted at: {{ row.time }}</p>
                 </span>
-            {% endfor %}
         </li>
+        
+
+        <details open>
+            <summary>{{ row.title }}</summary>
+            <p class="author">{{ row.name }}</p>
+            <p>{{ row.message }}</p>
+            <p class="post_time">Posted at: {{ row.time }}</p>
+        </details>
         {% endfor %}
     </ul>
 </main>
