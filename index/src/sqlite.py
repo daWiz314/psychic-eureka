@@ -1,8 +1,19 @@
 import datetime
+import os
 import sqlite3
 
 def sql_set_up() -> None:
 	cd = __file__.rsplit('/', 2)[0] + "/"
+	# Check if database file exists
+	if (not os.path.exists(cd+"db/users.sqlite")):
+		# then make the file
+		if not os.path.exists(cd+"db"):
+			os.makedirs(cd+"db")
+
+		# Create the database file
+		with open(cd+"db/users.sqlite", 'w') as f:
+			pass
+
 	# Set up the database
 	print(cd)
 	db = sqlite3.connect(cd+"/db/users.sqlite", check_same_thread=False)
