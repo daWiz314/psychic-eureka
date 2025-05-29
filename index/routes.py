@@ -2,7 +2,7 @@ from index.src.classes import *
 from index.src.sqlite import * #sql_set_up, add_user, get_hashed_password, get_feed, create_message
 from index.src.wraps import *
 
-from flask import Blueprint, redirect, url_for, request, render_template, make_response, current_app
+from flask import Blueprint, redirect, url_for, request, render_template, make_response, current_app, send_file
 
 index_blueprint = Blueprint('index',
                              __name__,
@@ -32,12 +32,19 @@ def hello_world(message="None"):
 def index():
      return redirect('/', code=301)
 
+# For the PWA
+@index_blueprint.route('/manifest.json')
+def serve_manifest():
+      return send_file('index/static/pwa/manifest.json', mimetype='application/manifest+json')
+
+@index_blueprint.route('/sw.js')
+def serve_service_worker():
+    return send_file('index/static/pwa/sw.js', mimetype='application/javascript')
+
 # Success for logging in, will update later
 @index_blueprint.route('/profile')
 @token_required
 def profile(user):
-    
-
     return render_template('/index/profile.html')
 
 @index_blueprint.route('/logout')
