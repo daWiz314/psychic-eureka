@@ -1,0 +1,60 @@
+{% include 'index/base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <h1>Create Note</h1>
+    <form method="POST" action="{{ url_for('index.create_note') }}">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <textarea id="content" name="content" class="form-control" rows="10" required></textarea>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Create Note</button>
+        </div>
+    </form>
+    <div class="form-group">
+        <a href="{{ url_for('index.notes') }}" class="btn btn-secondary">Back to Notes</a>
+    </div>
+</div>
+{% if message %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+{% endif %}
+
+{% if error %}
+    <div class="alert alert-danger">
+        {{ error }}
+    </div>
+{% endif %}
+
+{% if notes and friend_notes %}
+<div class="other-notes">
+
+    {% if notes %}
+        <div class="user-notes">
+            <h2>Your Notes</h2>
+            <ul class="list-group">
+                {% for note in notes %}
+                    <li class="list-group-item">
+                        <h3>{{ note.title }}</h3>
+                        <p>{{ note.content }}</p>
+                        <a href="{{ url_for('index.edit_note', note_id=note.id) }}" class="btn btn-secondary">Edit</a>
+                        <a href="{{ url_for('index.delete_note', note_id=note.id) }}" class="btn btn-danger">Delete</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% else %}
+    <div class="user-notes">
+        <p>No notes available. Create your first note!</p>
+    </div>
+    {% endif %}
+
+</div>
+
+{% endblock %}
