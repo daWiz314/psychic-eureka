@@ -50,7 +50,7 @@ def profile(user):
 @index_blueprint.route('/logout')
 def logout():
 	response = make_response(redirect(url_for('index.index'), code=301))
-	response.set_cookie('jwt_token', '', '', expires=0)
+	response.set_cookie('jwt_token', '', None, expires=0)
 	return response
 
 # Login route
