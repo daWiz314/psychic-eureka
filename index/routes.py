@@ -123,3 +123,23 @@ def create_message(user, display_message="None"):
 		
         sql_create_message(user, title, message)
         return redirect(url_for('index.feed'), code=301)
+
+
+@index_blueprint.route('/create-note', methods=['GET', 'POST'])
+# @token_required
+def create_note():
+
+    form_note = MessageForm()
+
+    if request.method == 'GET':
+        form_note = MessageForm()
+        # return render_template('index/notes/create_note.html', form=form_note)
+        # return render_template('/index/create_note.html', form=form_note)
+        return render_template('notes/create_note.html', form=form_note)
+
+    if form_note.validate_on_submit():
+        note = form_note.note.data
+        title = form_note.title.data
+
+        sql_create_note(title, note)
+        return redirect(url_for('index.feed'), code=301)
