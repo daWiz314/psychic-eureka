@@ -3,25 +3,26 @@
 {% block content %}
 <main>
     <ul class="feed-list">
-        {% for row in data %}
-        <li class="feed-item">
-            <h2>{{ row.title }}</h2>
+        {% for post in data %}
+        <!-- <li class="feed-item">
+            <h2>{{ post['title'] }}</h2>
                 <span>
                     <h3>
-                        Author: {{ row.name }}
+                        Author: {{ post['name'] }}
                     </h3>
-                    <p>{{ row.message }}</p>
-                    <p class="post_time">Posted at: {{ row.time }}</p>
+                    <p>{{ post['post'] }}</p>
+                    <p class="post_time">Posted at: {{ post['time'] }}</p>
                 </span>
-        </li>
+        </li> -->
         
-
-        <details open>
-            <summary>{{ row.title }}</summary>
-            <p class="author">{{ row.name }}</p>
-            <p>{{ row.message }}</p>
-            <p class="post_time">Posted at: {{ row.time }}</p>
-        </details>
+        <li>
+            <details open>
+                <summary>{{ post['title'] }}</summary>
+                <p class="author">{{ post['name'] }}</p>
+                <p>{{ post['post'] }}</p>
+                <p class="post_time">Posted at: {{ post['time'] }}</p>
+            </details>
+        </li>
         {% endfor %}
     </ul>
 </main>
