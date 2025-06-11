@@ -1,0 +1,57 @@
+{% include 'index/base.html' %}
+
+{% block content %}
+
+<main class="notes">
+    {% if message %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endif %}
+
+    {% if error %}
+        <div class="alert alert-danger">
+            {% for field, errors in error.items() %}
+                {% for error in errors %}
+                    <p>Error in {{ field }}: {{ error }}</p>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <h1>Create Note</h1>
+    <container class="form-container">
+        <form id="notes_form" method="POST" action="{{ url_for('index.create_note') }}">
+            {{ form.hidden_tag() }}
+            {{ form.note(placeholder="...") }}
+            {{ form.submit(value="Create Note!") }}
+        </form>
+    </container>
+
+{% if notes or friend_notes %}
+<div class="other-notes">
+
+    {% if notes %}
+        <div class="user-notes">
+            <h2>Your Notes</h2>
+            <ul class="list-group">
+                {% for note in notes %}
+                    <li class="list-group-item">
+                        <h3>{{ note.title }}</h3>
+                        <p>{{ note.content }}</p>
+                        <a href="{{ url_for('index.notes.edit_note', note_id=note.id) }}" class="btn btn-secondary">Edit</a>
+                        <a href="{{ url_for('index.notes.delete_note', note_id=note.id) }}" class="btn btn-danger">Delete</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    
+    {% endif %}
+{% else %}
+    <div class="user-notes">
+        <p>No notes available. Create your first note!</p>
+    </div>
+</div>
+{% endif %}
+</main>
+{% endblock %}
