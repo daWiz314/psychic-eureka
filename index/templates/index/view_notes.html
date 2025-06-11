@@ -1,0 +1,40 @@
+{% extends 'index/base.html' %}
+
+{% block content %}
+<main>
+    <h3>Notes</h3>
+    <a href=" {{ url_for('index.create_note') }}">Create a note!</a>
+    <h4>Your Notes</h4>
+    {% if user_notes %}
+        <ul class="view_notes-list">
+            {% for note in user_notes %}
+            <li class="view-notes-item">
+                <details open>
+                    <summary>{{ note['note'] }}</summary>
+                    <p class="post_time">Created At: {{ note['time'] }}</p>
+                </details>
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You have no notes yet.</p>
+    {% endif %}
+    {% if shared_notes %}
+        <h4>Shared Notes</h4>
+        <ul class="view_notes-list">
+            {% for note in shared_notes %}
+            <li class="view-notes-item">
+                <details open>
+                    <summary>{{ note['note'] }}</summary>
+                    <p>Owner: {{ note['owner'] }}</p>
+                    <p class="post_time">Created At: {{ note['time'] }}</p>
+                </details>
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No shared notes available.</p>
+    {% endif %}
+</main>
+
+{% endblock %}
