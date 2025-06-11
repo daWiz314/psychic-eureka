@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm   
 from wtforms import StringField, TextAreaField, SubmitField # For better form support
-from wtforms.validators import InputRequired, EqualTo       # For form validation
+from wtforms.validators import InputRequired       # For form validation
 
 class MessageForm(FlaskForm):
     # Form for user to enter their name and message
