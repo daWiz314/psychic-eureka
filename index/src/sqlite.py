@@ -278,7 +278,9 @@ class SQLiteHandler:
 		Args:
 			user (str): The name of the user.
 		Returns:
-			list[str]: A list of notes for the user.
+			(list[str, None], list[str, None]): Returns a tuple containing two lists:
+				1. Notes owned by the user.
+				2. Notes shared with the user.
 		"""
 		
 		# First check if they exist
@@ -320,8 +322,17 @@ class SQLiteHandler:
 			else:
 				continue
 		
-		
-		print(return_data)
+		notes = []
+		shared_with = []
+
+		for item in return_data:
+			if item['owner'] == user.lower():
+				notes.append(item)
+			else:
+				shared_with.append(item)
+		print("Notes:", notes)
+		print("Shared with:", shared_with)
+		return (notes, shared_with)
 		
 
 def lcl_connect() -> sqlite3.Connection:
