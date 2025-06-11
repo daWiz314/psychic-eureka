@@ -10,7 +10,7 @@
     </div>
 {% endif %}
 <main>
-    <div class="form-container">
+    <container class="form-container">
         <form action="{{ url_for('index.create_account') }}" method="POST">
             <h4>Sign up!</h3>
                 {{ forms.signup_form.hidden_tag() }}
@@ -23,7 +23,8 @@
                 {{ forms.signup_form.submit() }}
         </form>
         <br>
-
+    </container>
+    <container class="form-container">
         <form action="{{ url_for('index.login') }}" method="POST">
             <h4>Log in!</h3>
                 {{ forms.login_form.hidden_tag() }}
@@ -33,6 +34,6 @@
                 {{ forms.login_form.password }}
                 {{ forms.login_form.submit() }}
         </form>
-    </div>
+    </container>
 </main>
 {% endblock %}
