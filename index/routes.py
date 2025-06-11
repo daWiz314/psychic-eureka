@@ -12,7 +12,7 @@ index_blueprint = Blueprint('index',
 SQLObject = SQLiteHandler()
 
 def setup_blueprint() -> None:
-    sql_set_up()  # Set up the database
+    # sql_set_up()  # Set up the database
     set_callback_function(hello_world)  # Set the callback function for token_required decorator
 
 # Main index route
@@ -167,5 +167,14 @@ def edit_note(user, note_id):
 @index_blueprint.route('/view-notes')
 @token_required
 def view_notes(user):
-    notes = sql_get_notes(user)
-    return render_template('index/view_notes.html', notes=notes)
+    notes, shared_with = SQLObject.get_notes(user)
+    print("Notes for user:", user)
+    print(notes)
+    return render_template('index/view_notes.html', user_notes=notes, shared_with=shared_with)
+
+
+if __name__ == '__main__':
+    print("What are you doing? This is not a main file!")
+    exit(1)
+# This file is not meant to be run directly. It is a Flask blueprint for routing.
+# It should be imported and registered in a Flask application.
