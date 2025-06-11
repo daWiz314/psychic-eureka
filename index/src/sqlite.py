@@ -11,12 +11,12 @@ class SQLiteHandler:
 	def __init__(self):
 		# Get the path to the database file
 		self.db_path = __file__.rsplit('/', 2)[0] + "/db/users.sqlite"
-		# if not os.path.exists(self.db_path):
-		# 	# Create the database file if it does not exist
-		# 	if not os.path.exists(os.path.dirname(self.db_path)):
-		# 		os.makedirs(os.path.dirname(self.db_path))
-		# 	with open(self.db_path, 'w') as f:
-		# 		pass
+		if not os.path.exists(self.db_path):
+			# Create the database file if it does not exist
+			if not os.path.exists(os.path.dirname(self.db_path)):
+				os.makedirs(os.path.dirname(self.db_path))
+			with open(self.db_path, 'w') as f:
+				pass
 
 
 
