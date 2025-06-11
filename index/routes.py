@@ -135,7 +135,7 @@ def create_note(user):
 
     form_note = NoteForm()
 
-    notes = sql_get_notes(user)
+    notes, _ = SQLObject.get_notes(user)
     if notes:
         print("Notes found for user:", user)
     else:
@@ -150,7 +150,7 @@ def create_note(user):
     if form_note.validate_on_submit():
         note = form_note.note.data
         print("Creating note:", note)
-        sql_create_note(user, note)
+        SQLObject.create_note(user, note)
         return redirect(url_for('index.view_notes'), code=301)
     else:
         print("Form validation failed:", form_note.errors)
